@@ -1,0 +1,49 @@
+<h2>JavaScript Game Example</h2>
+
+<p id="demo1"></p>
+<p id="demo"></p>
+
+<script>
+
+
+var citizen_ages = [];
+var new_citizen_ages = [];
+
+//Initialize Citizen Ages  
+for (i = 0; i < 100; i++) citizen_ages[i] = 0;
+
+//Ages of new people moving in (under age 50) 
+for (i = 0; i < 20; i++)
+{
+  new_citizen_ages.push(Math.floor(Math.random() * 50) )
+}
+//Sort in numerical order
+new_citizen_ages.sort(function(a, b) {
+  return a - b;
+});
+
+//Add new citizens to current citizens  
+for (i = 0; i < new_citizen_ages.length; i++)
+{
+	var temp = new_citizen_ages[i];
+    var temp2 = citizen_ages[temp];
+    citizen_ages[temp] = temp2 + 1;
+}
+
+
+
+//var sum = citizen_ages.map(function (num, idx) {
+//  return num + new_citizen_ages[idx];
+//});
+
+//citizen_ages = sum.map((x) => x);
+
+//var sum = citizen_ages.reduce(function(a, b){
+      //  return a + b;
+//}, 0);
+
+document.getElementById("demo1").innerHTML = new_citizen_ages;
+document.getElementById("demo").innerHTML = citizen_ages;
+</script>
+
+<br />
