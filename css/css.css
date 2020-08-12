@@ -1,15 +1,256 @@
 .button {
-background-color: #4CAF50;
-border: none;
-color: white;
-padding: 15px 32px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-margin: 4px 2px;
-cursor: pointer;
+  background-color: white;
+  color: black;
+  float: left;
+  border: 2px solid green;
+  outline: none;
+  cursor: pointer;
+
+  margin: 1%;
+  font-size: 17px;
+  width: 23%;
+  height: 70px;
+  border-radius: 5px;
 }
-div {
-  word-wrap: break-word;
+
+.button-right {
+  float: right;
+  padding-left: 5px;
+  margin-left: 10px;
+}
+
+.info_box {
+  background-color: white;
+  color: black;
+  float: left;
+  border: 2px solid green;
+  outline: none;
+  cursor: pointer;
+
+  margin: 1%;
+  font-size: 17px;
+  width: 23%;
+  height: 70px;
+  border-radius: 5px;
+}
+
+.back {
+  background-color: white;
+  color: black;
+  border: 2px solid green;
+  outline: none;
+  cursor: pointer;
+  margin: 1%;
+  font-size: 17px;
+  width: 23%;
+  height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.info_box2 {
+  border: 2px solid green;
+  outline: none;
+  cursor: pointer;
+  margin: 1%;
+  font-size: 17px;
+  width: 23%;
+  height: auto;
+  border-radius: 5px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.center {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border:none;
+}
+
+.hidden {
+  display: none;
+}
+
+.small {
+  width: 10.5%;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  /*display: table;*/
+  clear: both;
+}
+BUTTON SPAN {
+    line-height: 14px;
+    font-size: 17px;
+    padding: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+.info {
+  width: 30%;
+  height: 25px;
+  text-align: center;
+  padding-top: 1px;
+  padding-bottom: 5px;
+  border: 2px solid green;
+  font-size: 25px;
+  border-radius: 10px;
+  margin: auto;
+  display: inline-block;
+  vertical-align: top;
+
+}
+
+.button:hover {
+  background: #2196F3;
+  color: white;
+}
+
+.back:hover {
+  background: #2196F3;
+  color: white;
+}
+
+#confirm {
+    display: none;
+    background-color: white;
+    border: 2px solid green;
+    position: relative;
+    width: 15%;
+    margin: 10px auto;
+    height: 100px;
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 10px;
+}
+#confirm button {
+background-color: white;
+display: inline-block;
+border-radius: 5px;
+border: 2px solid green;
+padding: 5px;
+text-align: center;
+width: 80px;
+cursor: pointer;
+margin-top: 5px;
+height: 50px;
+}
+#confirm .message {
+text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-right: 10px;
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: auto;
+  padding: 5px;
+  table-layout: auto;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  #confirm {
+    width:100%;
+  }
+
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    font-size: .8em;
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+  .button {
+    width: 100%;
+  }
+  .info_box2 {
+    width:100%;
+  }
 }

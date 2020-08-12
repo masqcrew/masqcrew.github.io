@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>JavaScript Tutorial - Arrays and Loops</title>
+	<link rel="stylesheet" href="css/foundation.min.css"></link>
+</head>
+
+<body>
+
+	<!-- JAVASCRIPT -->
+	<script type="text/javascript">
+
+	var ages 			= [];
+  for (i = 0; i < 20; i++)
+  {
+    ages.push(Math.floor(Math.random() * 50) + 1)
+  }
+
+
+	document.write('<table>');
+	document.write('<tr><th>Teams</th></tr>');
+
+	for(var i = 0; i < ages.length; i++)
+	{
+		document.write('<tr><td>' + i + '</td><td>' + ages[i] + '</td></tr>');
+	}
+
+	document.write('</table>');
+
+	</script>
+	<!-- END JAVASCRIPT -->
+</body>
+</html>

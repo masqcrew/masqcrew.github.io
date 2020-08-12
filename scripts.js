@@ -1,42 +1,74 @@
-var citizen_ages = [];
-var new_citizen_ages = [];
-var population = 0;
+var Citizens = {
+ ages: [],
+ new_ages: [],
+ age_cap: 101,
+ new_number: 20,
+ population: 0
+};
+
 //Initialize age slots
-for (i = 0; i < 100; i++) citizen_ages[i] = 0;
+for (i = 0; i < Citizens.age_cap; i++) Citizens.ages[i] = 0;
 
 
 
 function NewCitizens(){
+  //button_off();
+  //enable Tables button
+
 
 //Ages of 20 new people moving in (age 50 and under, excluding newborns)
-  for (i = 0; i < 20; i++)
+  for (i = 0; i < Citizens.new_number; i++)
   {
-    new_citizen_ages.push(Math.floor(Math.random() * 50) + 1)
+    Citizens.new_ages.push(Math.floor(Math.random() * 25) + 1)
   }
   //Sort in numerical order
-  new_citizen_ages.sort(function(a, b) {
+  Citizens.new_ages.sort(function(a, b) {
     return a - b;
   });
 
   //Add new citizens to current citizen count
-  for (i = 0; i < new_citizen_ages.length; i++)
+  for (i = 0; i < Citizens.new_ages.length; i++)
   {
-  	var temp = new_citizen_ages[i];
-      var temp2 = citizen_ages[temp];
-      citizen_ages[temp] = temp2 + 1;
+  	var temp = Citizens.new_ages[i];
+      var temp2 = Citizens.ages[temp];
+      Citizens.ages[temp] = temp2 + 1;
   }
-  population = citizen_ages.reduce(function(a, b){
+  Citizens.population = Citizens.ages.reduce(function(a, b){
       return a + b;
   }, 0);
 
-  document.getElementById("demo1").innerHTML = "New Citizens (ages): " + new_citizen_ages;
-  document.getElementById("demo").innerHTML = "Citizen Count: " + citizen_ages;
-  document.getElementById("sum").innerHTML = "Population: " + population;
+  document.getElementById("pop").innerHTML = Citizens.population;
 
-  document.querySelector('#begin_button').textContent  = 'New Year';
 
-  citizen_ages.pop();
-  citizen_ages.unshift(0);
-  new_citizen_ages = [];
 
+  Citizens.ages.pop();
+  Citizens.ages.unshift(0);
+  Citizens.new_ages = [];
+
+}
+
+function agesTable(){
+  button_off();
+  var text = "<table><tr><th>Age</th><th>Count</th></tr>";
+  var text2 = "";
+  var text3 = "</table>";
+
+  for(var i = 0; i < Citizens.ages.length; i++)
+	{
+		text2 = text2 += ('<tr><td>' + i + '</td><td>' + Citizens.ages[i] + '</td></tr>');
+	}
+  text = text + text2 + text3;
+  document.getElementById("text").innerHTML = text;
+  document.getElementById("text").style.display = "flex";
+}
+
+function functionConfirm(msg, myYes, myNo) {
+    var confirmBox = $("#confirm");
+    confirmBox.find(".message").text(msg);
+    confirmBox.find(".yes,.no").unbind().click(function() {
+            confirmBox.hide();
+                });
+            confirmBox.find(".yes").click(myYes);
+            confirmBox.find(".no").click(myNo);
+            confirmBox.show();
 }

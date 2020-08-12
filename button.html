@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/css.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="scripts.js"></script>
+</head>
+<body>
+
+<img src="images/header.png">
+
+<div style="margin: auto; text-align:center;">
+<div class="info"><img src="images/population.png" width=20px;><span id="pop">0</span></div>
+<div class="info"><img src="images/coins.png" width=20px;> 234</div>
+<div class="info"><img src="images/clout.png" width=20px;> 234</div>
+</div>
+
+
+<div id="confirm">
+    <div class="message"></div>
+    <button class="yes">Yes</button>
+    <button class="no">No</button>
+</div>
+
+<button class="button small button-off" onclick = 'functionConfirm("Are you sure?", function yes() {
+    NewCitizens()
+    },
+    function no() {
+
+    });'><span><img src="images/gears.png" width=50px;></span><span>End Turn</span></button>
+<!--
+<button class="button small" onclick='NewCitizens()'><span><img src="images/gears.png" width=50px;></span><span>End Turn</span></button>-->
+<button class="button small button-off" onclick='subPage("hidden_homes")'><span><img src="images/homes.png" width=50px;></span><span>Homes</span></button>
+<button class="button small button-off" onclick='subPage("hidden_business")'><span><img src="images/business.png" width=50px;></span><span>Business</span></button>
+<button class="button small button-off" onclick='helpMe()'><span><img src="images/industry.png" width=50px;></span><span>Industry</span></button>
+<button class="button button-off" onclick='helpMe()'><span><img src="images/police.png" width=50px;></span><span>Services</span></button>
+<button class="button button-off" onclick='helpMe()'><span><img src="images/parks.png" width=50px;></span><span>Parks&Rec</span></button>
+<button class="button button-off" onclick='helpMe()'><span><img src="images/staff.png" width=50px;></span><span>Staff</span></button>
+<button class="button button-off" onclick='helpMe()'><span><img src="images/policy.png" width=50px;></span><span>Policy</span></button>
+<button class="button button-off" onclick='helpMe()'><span><img src="images/taxes.png" width=50px;></span><span>Taxes</span></button>
+<button class="button button-off" onclick='agesTable()'><span><img src="images/charts.png" width=40px;></span><span>Tables & Charts</span></button>
+
+
+<!--<button onclick="button_off()">Off</button>-->
+
+
+<div class="center hidden">
+  <button class="back" onclick="button_on()">Go Back</button>
+</div>
+
+<div class="center"><span id="info_box" class="info_box2">Hello</span></div>
+
+
+<div id="hidden_homes" class = "sub_page" style="display: none">
+
+  <button class="button sub" onclick='home_buy()'><span><img src="images/home.png" width=50px;></span><span>Standard</span></button>
+  <button class="button sub" onclick='helpMe()'><span><img src="images/apartment.png" width=50px;></span><span>Apartment</span></button>
+  <button class="button sub" onclick='helpMe()'><span><img src="images/midrise.png" width=50px;></span><span>Mid-rise</span></button>
+  <button class="button sub" onclick='agesTable()'><span><img src="images/highrise.png" width=40px;></span><span>Highrise</span></button>
+
+</div>
+
+<div id="hidden_business" class = "sub_page" style="display: none">
+
+  <button class="button sub" onclick='helpMe()'><span><img src="images/staff.png" width=50px;></span><span>Ha ha</span></button>
+  <button class="button sub" onclick='helpMe()'><span><img src="images/policy.png" width=50px;></span><span>Policy</span></button>
+  <button class="button sub" onclick='helpMe()'><span><img src="images/taxes.png" width=50px;></span><span>Taxes</span></button>
+  <button class="button sub" onclick='agesTable()'><span><img src="images/charts.png" width=40px;></span><span>Tables & Charts</span></button>
+
+</div>
+
+
+<script>
+function home_buy(){
+  //document.getElementsByClassName('info_box2').style.display = 'flex';
+  document.getElementById('info_box').style.display = 'flex';
+  var text = 'Cost: 1 Clout<BR>Capacity: 5';
+  text = text + '<button class="button button-right">Hello</button>';
+  document.getElementById('info_box').innerHTML = text;
+}
+
+function subPage(id){
+  button_off();
+  document.getElementById(id).style.display = 'block';
+  var x = document.getElementsByClassName('sub'); //divsToHide is an array
+    for(var i = 0; i < x.length; i++){
+        x[i].style.display = "block"; // or
+        //divsToHide[i].style.display = "none"; // depending on what you're doing
+    }
+}
+
+
+function helpMe(){
+  button_off();
+  document.getElementById('text_page').style.display = 'block';
+}
+
+function button_off(){
+  var divsToHide = document.getElementsByClassName("button-off"); //divsToHide is an array
+    for(var i = 0; i < divsToHide.length; i++){
+        divsToHide[i].style.display = "none"; // or
+        //divsToHide[i].style.display = "none"; // depending on what you're doing
+    }
+    var divsToHide = document.getElementsByClassName("hidden"); //divsToHide is an array
+      for(var i = 0; i < divsToHide.length; i++){
+          divsToHide[i].style.display = "flex"; // or
+          //divsToHide[i].style.display = "none"; // depending on what you're doing
+      }
+      //document.getElementsByID("info_box").style.display = "none";
+}
+
+function button_on(){
+  document.getElementById('info_box').style.display = 'none';
+  var divsToHide = document.getElementsByClassName("button-off"); //divsToHide is an array
+    for(var i = 0; i < divsToHide.length; i++){
+        divsToHide[i].style.display = "block"; // or
+        //divsToHide[i].style.display = "none"; // depending on what you're doing
+    }
+    var divsToHide = document.getElementsByClassName("hidden"); //divsToHide is an array
+      for(var i = 0; i < divsToHide.length; i++){
+          divsToHide[i].style.display = "none"; // or
+          //divsToHide[i].style.display = "none"; // depending on what you're doing
+      }
+      var divsToHide = document.getElementsByClassName("sub_page"); //divsToHide is an array
+        for(var i = 0; i < divsToHide.length; i++){
+            divsToHide[i].style.display = "none"; // or
+            //divsToHide[i].style.display = "none"; // depending on what you're doing
+        }
+
+}
+
+</script>
+</body>
+</html>
